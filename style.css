@@ -1,16 +1,17 @@
 * {
-    font-family: 'ABeeZee';
+    font-family: 'Lobster', cursive;
 }
 
 h1 {
     text-align: center;
+    color: #3A5874;
     margin-top: 10px;
     font-size: 4rem;
 }
 
 h3 {
     text-align: center;
-    color: lightcoral;
+    color:#998B7B;
 }
 
 .textareacontainer {
@@ -36,7 +37,7 @@ textarea{
     border: 1px solid #a9a6a6;
     border-radius: 6px;
     box-sizing: border-box;
-    color: #3B3B3B;
+    color: #3A5874;
     cursor: pointer;
     display: inline-block;
     font-size: 18px;
@@ -56,10 +57,14 @@ textarea{
 
 #addnotebutton:hover {
     color: #fff;
-    background-color: lightcoral;
+    background-color: #3A5874;
     transform: translateY(-2px);
 }
 
 #addnotebutton:active {
     transform: translateY(0);
+}
+
+.col-sm-6{
+    padding-bottom: 10px;
 }
