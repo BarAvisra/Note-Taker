@@ -1,6 +1,12 @@
+@import url('https://fonts.googleapis.com/css2?family=Lobster&family=Shantell+Sans:ital,wght@1,600&display=swap');
+
 * {
-    font-family: 'Lobster', cursive;
+    font-family: 'Shantell Sans', cursive;
 }
+
+/* body {
+    background-color: gray;
+} */
 
 h1 {
     text-align: center;
@@ -67,4 +73,14 @@ textarea{
 
 .col-sm-6{
     padding-bottom: 10px;
+}
+
+.card-text, .modal-text, #text_area, .textAreaModal{
+    color: #3A5874;
+}
+
+#save_changes {
+    background-color: #3A5874;
+    ;
+
 }

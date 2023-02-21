@@ -12,8 +12,6 @@ const closeButton = document.querySelector(".close");
 const closeText = document.querySelector("#close_text");
 const saveChanges = document.querySelector("#save_changes");
 
-userValue.style.color = "#3A5874";
-
 addNote.addEventListener("click", () => {
 
     const div_1 = document.createElement("div");
@@ -29,7 +27,7 @@ addNote.addEventListener("click", () => {
     p1.classList.add("card-text");
 
     let fullText = userValue.value;
-    p1.style.color = "#3A5874";
+
     if (fullText.length > 120) {
         p1.innerHTML = fullText.slice(0, 120) + "...";
     } else {
@@ -43,6 +41,7 @@ addNote.addEventListener("click", () => {
     button.setAttribute("data-toggle", "modal");
     button.setAttribute("data-target", "#exampleModalCenter");
     button.style.backgroundColor = "#998B7B"
+    button.style.border = "none"
 
     button.addEventListener("click", () => {
         modalText.innerHTML = fullText;
@@ -50,28 +49,44 @@ addNote.addEventListener("click", () => {
 
     closeButton.addEventListener("click", () => {
         modalText.innerHTML = fullText;
+        modalBody.replaceChild(modalText, textArea);
     });
 
     let textArea;
 
     function textAreaCreation() {
         textArea = document.createElement("textarea");
+        textArea.classList.add("textAreaModal");
         modalText.append(textArea);
         textArea.value = fullText;
         modalBody.replaceChild(textArea, modalText);
     }
-        
+
     modalText.addEventListener("click", () => {
         textAreaCreation();
     });
-    
+
     saveChanges.addEventListener("click", () => {
+        console.log('CLICKED');
         const value = textArea.value;
         modalText.innerHTML = value;
         fullText = value;
+        modalBody.replaceChild(modalText, textArea);
+        const newp1 = document.createElement("p");
+        newp1.classList.add("card-text");
+
+        if (fullText.length > 120) {
+            newp1.innerHTML = fullText.slice(0, 120) + "...";
+        } else {
+            newp1.innerHTML = fullText;
+        }
+        
+        const oldText = div_3.querySelector("p.card-text");
+        div_3.removeChild(oldText);
+        div_3.append(newp1, button);
+        textArea = null;
     });
-    
-    
+
 
     div_3.append(p1, button);
     div_2.append(div_3);
@@ -80,3 +95,4 @@ addNote.addEventListener("click", () => {
     row.append(div_1);
     container.append(row);
 })
+
